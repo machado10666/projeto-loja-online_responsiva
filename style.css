@@ -1,0 +1,368 @@
+/* ===== VARIÁVEIS CSS ===== */
+/* Definindo variáveis para cores e espaçamentos que serão reutilizadas */
+:root {
+    --large-default-padding: 6.5em; /* 1em = 16px */
+    --medium-default-padding: 4em;
+    --small-default-padding: 2em;
+    --primary-color: #162028;       
+    --secondary-color: #003D52;     
+    --text-color: #555;             
+    --accent-color: yellow;     
+}
+
+/* ===== RESET E CONFIGURAÇÕES GLOBAIS ===== */
+
+* {
+    box-sizing: border-box; /* Inclui padding e border no cálculo do width/height */
+}
+
+body {
+    font-family: "Federo", sans-serif; /* Fonte principal do projeto */
+    margin: 0; /* Remove margens padrão */
+    padding: 0; /* Remove paddings padrão */
+    line-height: 1.6; /* Altura da linha para melhor legibilidade */
+}
+
+/* ===== CONTAINER PRINCIPAL ===== */
+/* Container que centraliza o conteúdo na página */
+#principal {
+    max-width: 64em; /* Largura máxima em desktop */
+    margin: 1.25em auto; /* Centraliza horizontalmente */
+    width: 100%; 
+    padding: 0 1em; /* Padding lateral para não colar nas bordas */
+}
+
+/* ===== CABEÇALHO ===== */
+/* Header com logo e menu de navegação */
+.header-topo {
+    background-color: var(--primary-color); 
+    display: flex; 
+    justify-content: space-between; /* Espaço entre logo e menu */
+    align-items: center; 
+    flex-wrap: wrap; /* Permite quebra de linha em telas pequenas */
+    padding: 0.5em 1em; /* Espaçamento interno */
+}
+
+/* Estilo do logotipo */
+.logotipo {
+    font-family: "Belleza", sans-serif; 
+    margin: 0.5em 0; /* Margem vertical */
+    color: white; 
+    text-shadow: -3px 3px 0 black; 
+    font-size: 1.8em; 
+    letter-spacing: 0.2em; 
+    text-align: center; 
+    flex: 1; /* Ocupa espaço disponível no flex container */
+    min-width: 200px; /* Largura mínima para evitar quebra indesejada */
+}
+
+/* ===== MENU DE NAVEGAÇÃO ===== */
+.header-nav ul {
+    margin: 0; /* Remove margens padrão */
+    padding: 0; /* Remove paddings padrão */
+    display: flex; /* Layout flexível para os itens */
+    flex-wrap: wrap; /* Permite quebra de linha */
+    justify-content: center; /* Centraliza os itens */
+}
+
+/* Itens do menu */
+.header-nav li {
+    list-style: none; 
+    margin: 0.5em 1em; /* Espaçamento entre os itens */
+}
+
+/* Links do menu */
+.header-nav a {
+    color: #425564; 
+    text-decoration: none; 
+    text-transform: uppercase; 
+    font-size: 0.9em; 
+    letter-spacing: 0.15em; 
+    transition: color 0.3s linear; /* Transição suave para hover */
+    display: block; /* Faz o link ocupar toda a área */
+    padding: 0.5em 0; /* Espaçamento interno vertical */
+}
+
+/* Efeito hover nos links do menu */
+.header-nav a:hover {
+    color: white; 
+}
+
+/* ===== BANNER PRINCIPAL ===== */
+/* Container da imagem principal */
+.imagem-container {
+    position: relative; /* Permite posicionamento absoluto dos elementos filhos */
+    display: inline-block; /* Exibe como bloco inline */
+    width: 100%; 
+    margin-bottom: 2em; /* Espaço abaixo do banner */
+}
+
+/* Imagem do banner */
+.imagem-container img {
+    width: 100%; /* Imagem responsiva - ocupa 100% do container */
+    height: auto; /* Altura automática para manter proporção */
+    display: block; /* Remove espaço abaixo da imagem */
+}
+
+/* Banner da Black Friday */
+.black-friday-banner {
+    position: absolute; /* Posiciona sobre a imagem */
+    top: 30px; 
+    right: 30px; 
+    background-color: var(--accent-color); 
+    color: black; 
+    padding: 10px 15px; /* Espaçamento interno */
+    font-size: 1.5em; 
+    font-weight: bold; 
+    border-radius: 5px; 
+    animation: piscar-suave 0.5s infinite; /* Animação de piscar */
+    z-index: 12; /* Garante que fique acima de outros elementos */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); 
+}
+
+/* Animação do banner da Black Friday */
+@keyframes piscar-suave {
+    0%, 100% {
+        opacity: 1; /* Totalmente visível */
+        background-color: var(--accent-color); 
+    }
+    50% {
+        opacity: 0.7; /* Levemente transparente */
+        background-color: var(--accent-color); 
+    }
+}
+
+/* ===== SEÇÃO PORTFÓLIO ===== */
+/* Seção de introdução/descrição */
+.portifolio {
+    margin: auto; /* Centraliza horizontalmente */
+    text-align: center;
+    width: 95%; 
+    padding: 0 1em; /* Padding lateral */
+}
+
+/* Título da seção portfólio */
+.portifolio h1 {
+    font-size: 2em; 
+    font-weight: normal; 
+}
+
+/* Parágrafo da seção portfólio */
+.portifolio p {
+    font-size: 1.3em; 
+    line-height: 2; /* Altura da linha para melhor legibilidade */
+    color: var(--text-color); 
+}
+
+/* ===== GALERIA DE PRODUTOS ===== */
+/* Container da galeria */
+.gallery {
+    color: var(--text-color); 
+    padding: 0 var(--small-default-padding) var(--medium-default-padding); 
+    display: flex; /* Layout flexível */
+    flex-wrap: wrap; /* Permite quebra de linha dos cards */
+    justify-content: center; 
+    gap: 2em; /* Espaço entre os cards */
+}
+
+/* Cards individuais dos produtos */
+.gallery-card {
+    text-align: center; 
+    flex: 1 1 300px; /* Flex-grow, flex-shrink, flex-basis */
+    max-width: 400px; /* Largura máxima dos cards */
+}
+
+/* Imagens dos produtos */
+.gallery-card img {
+    width: 100%; /* Imagem responsiva */
+    height: auto; /* Mantém proporção */
+    display: block; /* Remove espaço abaixo */
+}
+
+/* Título do produto */
+.gallery-title {
+    text-transform: uppercase; 
+    letter-spacing: 0.15em; 
+    font-size: 1em; 
+    font-weight: bold; 
+    margin: 1em 0 0.5em; /*top,(rigth e left), botton */
+}
+
+/* Descrição do produto */
+.gallery-text {
+    margin: 0.5em 0; /* Margem vertical */
+}
+
+/* Preço do produto */
+.gallery-price {
+    font-size: 1.3em; 
+    text-align: center; 
+    color: black; 
+    font-weight: bold; 
+}
+
+/* ===== SEÇÃO SOBRE ===== */
+/* Seção "about" com fundo azul */
+.about {
+    background-color: var(--secondary-color); 
+    padding: var(--small-default-padding); 
+    color: white; 
+    background-image: url(imagens/bg_detalhe.png); /* Imagem de fundo decorativa */
+    background-repeat: no-repeat; 
+    background-position: right bottom; 
+    border-radius: 5px; 
+    margin: 2em 0; /* top/bottom=2, right/left=0 */
+}
+
+/* Título da seção sobre */
+.about h2 {
+    text-transform: uppercase; 
+    font-size: 2em; 
+    font-weight: normal; 
+    margin-top: 0; /* Remove margem superior padrão */
+}
+
+/* Parágrafo da seção sobre */
+.about p {
+    line-height: 1.5; 
+    width: 100%; 
+    text-align: justify; 
+}
+
+/* ===== RODAPÉ ===== */
+.footer {
+    background: #0b171f; 
+    padding: 1.8em; /* Espaçamento interno */
+    font-size: 0.75em; 
+    letter-spacing: 0.3em; 
+    text-align: center; 
+    color: white; 
+    border-radius: 5px; 
+    margin-top: 2em; 
+}
+
+/* ===== MEDIA QUERIES - RESPONSIVIDADE ===== */
+
+/* === TABLETS (até 768px de largura) === */
+@media (max-width: 768px) {
+    /* Ajusta variáveis para tablets */
+    :root {
+        --large-default-padding: 4em;
+        --medium-default-padding: 2em;
+        --small-default-padding: 1em;
+    }
+
+    /* Header em coluna para tablets */
+    .header-topo {
+        flex-direction: column; /* Empilha logo e menu verticalmente */
+        text-align: center; /* Centraliza o conteúdo */
+    }
+
+    /* Ajustes no logo para tablets */
+    .logotipo {
+        margin: 0.5em 0; /* Margem vertical */
+        font-size: 1.5em; 
+    }
+
+    /* Menu em coluna para tablets */
+    .header-nav ul {
+        flex-direction: column; /* Itens do menu em coluna */
+        width: 100%; 
+    }
+
+    /* Itens do menu para tablets */
+    .header-nav li {
+        margin: 0.2em 0; 
+        width: 100%; 
+    }
+
+    /* Links do menu para tablets */
+    .header-nav a {
+        padding: 0.8em; /* Padding maior para toque fácil */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Linha divisória sutil */
+    }
+
+    /* Banner Black Friday para tablets */
+    .black-friday-banner {
+        font-size: 1em; 
+        padding: 8px 12px; 
+        top: 15px; /* Posição mais próxima da borda */
+        right: 15px; 
+    }
+
+    /* Título do portfólio para tablets */
+    .portifolio h1 {
+        font-size: 1.7em;
+    }
+
+    /* Parágrafo do portfólio para tablets */
+    .portifolio p {
+        font-size: 1.1em; /* Tamanho reduzido */
+        line-height: 1.6; /* Altura de linha ajustada */
+    }
+
+    /* Galeria para tablets */
+    .gallery {
+        padding: 0 1em 2em; /* Padding lateral reduzido */
+    }
+
+    /* Cards da galeria para tablets */
+    .gallery-card {
+        flex: 1 1 100%; 
+    }
+
+    /* Título da seção sobre para tablets */
+    .about h2 {
+        font-size: 1.7em; 
+    }
+
+    /* Parágrafo da seção sobre para tablets */
+    .about p {
+        font-size: 1em; /* Tamanho padrão */
+    }
+}
+
+/* === SMARTPHONES (até 480px de largura) === */
+@media (max-width: 480px) {
+    /* Logo para smartphones */
+    .logotipo {
+        font-size: 1.3em; 
+        letter-spacing: 0.1em; 
+    }
+
+    /* Banner Black Friday para smartphones */
+    .black-friday-banner {
+        font-size: 0.8em; 
+        padding: 5px 8px; 
+        top: 10px; /* Próximo à borda */
+        right: 10px; /* Próximo à borda */
+    }
+
+    /* Título do portfólio para smartphones */
+    .portifolio h1 {
+        font-size: 1.5em; /* Tamanho reduzido */
+    }
+
+    /* Parágrafo do portfólio para smartphones */
+    .portifolio p {
+        font-size: 1em; /* Tamanho padrão */
+    }
+
+    /* Título da seção sobre para smartphones */
+    .about h2 {
+        font-size: 1.5em; 
+    }
+
+    /* Preço dos produtos para smartphones */
+    .gallery-price {
+        font-size: 1.1em; /* Tamanho ligeiramente reduzido */
+    }
+}
+
+/* === TELAS GRANDES (acima de 1200px) === */
+@media (min-width: 1200px) {
+    /* Container principal para telas grandes */
+    #principal {
+        max-width: 1200px; /* Largura máxima aumentada */
+    }
+}
